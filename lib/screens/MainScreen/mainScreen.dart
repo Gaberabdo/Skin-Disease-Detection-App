@@ -21,36 +21,39 @@ class _MainScreenState extends State<MainScreen> {
           title: const Text("Skin Disease Detection"),
         ),
         body: Material(
-          child: Container(
-            color: Colors.white,
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height * 1,
-            child: Column(children: [
-              SvgPicture.asset(
-                "assets/images/mask.svg",
-                height: MediaQuery.of(context).size.height * 0.31,
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
-              ),
-              const CustomButton(
-                tex: "Camera",
-                col: Color(0xff9327E9),
-                option: "Camera",
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.04,
-              ),
-              const CustomButton(
-                tex: "Gallery",
-                col: Color(0xff14BE58),
-                option: "Gallery",
-              ),
-              SvgPicture.asset(
-                "assets/images/sanitizer.svg",
-                height: MediaQuery.of(context).size.height * 0.29,
-              ),
-            ]),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              color: Colors.white,
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height * 1,
+              child: Column(children: [
+                SvgPicture.asset(
+                  "assets/images/mask.svg",
+                  height: MediaQuery.of(context).size.height * 0.31,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
+                ),
+                const CustomButton(
+                  tex: "Camera",
+                  col: Color(0xff9327E9),
+                  option: "Camera",
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.04,
+                ),
+                const CustomButton(
+                  tex: "Gallery",
+                  col: Color(0xff14BE58),
+                  option: "Gallery",
+                ),
+                SvgPicture.asset(
+                  "assets/images/sanitizer.svg",
+                  height: MediaQuery.of(context).size.height * 0.29,
+                ),
+              ]),
+            ),
           ),
         ),
         drawer: const NavigatorDrawer(),
@@ -60,4 +63,3 @@ class _MainScreenState extends State<MainScreen> {
 }
 
 //---------------------------------------------------------------------
-

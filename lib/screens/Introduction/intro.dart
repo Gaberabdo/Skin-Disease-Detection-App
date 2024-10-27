@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:skin_disease_detection/navigationDrawer/navigatorDrawer.dart';
 
+import '../../main.dart';
 import '../../routes/pageRoute.dart';
 
 class Intro extends StatelessWidget {
@@ -44,8 +45,10 @@ class Intro extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.arrow_forward),
-          onPressed: () =>
-              Navigator.pushReplacementNamed(context, PageRoutes.home),
+          onPressed: () {
+            prefs.setBool('intro', true);
+            Navigator.pushReplacementNamed(context, PageRoutes.home);
+          },
         ),
         drawer: const NavigatorDrawer(),
       ),

@@ -34,28 +34,20 @@ class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        if (widget.option == "Camera") {
-          //call for camera method to pick image
-          _getImage(ImageSource.camera);
-        } else if (widget.option == "Gallery") {
-          _getImage(ImageSource.gallery);
-        }
-      },
-      child: Text(
-        widget.tex,
-        style: const TextStyle(fontSize: 24),
-      ),
-      style: ButtonStyle(
-        minimumSize: MaterialStateProperty.all(Size(
-            MediaQuery.of(context).size.width * 0.7,
-            MediaQuery.of(context).size.height * 0.1)),
-        backgroundColor: MaterialStateProperty.all<Color>(widget.col),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(28),
-        )),
-      ),
-    );
+        onPressed: () {
+          if (widget.option == "Camera") {
+            //call for camera method to pick image
+            _getImage(ImageSource.camera);
+          } else if (widget.option == "Gallery") {
+            _getImage(ImageSource.gallery);
+          }
+        },
+        child: Text(
+          widget.tex,
+          style: const TextStyle(fontSize: 24),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: widget.col,
+        ));
   }
 }

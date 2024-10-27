@@ -1,6 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:skin_disease_detection/screens/authentication/auth_class.dart';
 
 import '../routes/pageRoute.dart';
+import '../screens/authentication/Screens/Login/login_screen.dart';
 
 class NavigatorDrawer extends StatelessWidget {
   const NavigatorDrawer({Key? key}) : super(key: key);
@@ -11,7 +15,25 @@ class NavigatorDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const CreateDrawerHeader(),
+          const SizedBox(
+            height: 80,
+            child: DrawerHeader(
+              child: Text(
+                'Skin Disease Detection',
+                style: TextStyle(color: Colors.black, fontSize: 25),
+              ),
+            ),
+          ),
+          const CircleAvatar(
+            radius: 50,
+            backgroundImage: AssetImage('assets/images/skindisease.jpg'),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Center(
+            child: Text(FirebaseAuth.instance.currentUser!.email ?? ''),
+          ),
           DrawerItem(
             icon: Icons.home,
             text: 'Home',
@@ -35,6 +57,14 @@ class NavigatorDrawer extends StatelessWidget {
             text: 'About Us',
             onTap: () =>
                 Navigator.pushReplacementNamed(context, PageRoutes.aboutus),
+          ),
+          DrawerItem(
+            icon: Icons.logout,
+            text: 'logout',
+            onTap: () {
+              Authentication.signOut(context: context);
+              Get.offAll(() => const LoginScreen());
+            },
           )
         ],
       ),
@@ -69,16 +99,16 @@ class CreateDrawerHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DrawerHeader(
+    return const DrawerHeader(
       margin: EdgeInsets.zero,
       padding: EdgeInsets.zero,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           color: Colors.purple,
           image: DecorationImage(
             image: AssetImage("assets/images/skindisease.jpg"),
             fit: BoxFit.cover,
           )),
-      child: Stack(children: const [
+      child: Stack(children: [
         Positioned(
             bottom: 15,
             left: 18,
