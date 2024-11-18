@@ -8,7 +8,7 @@ class Authentication {
   static User? currentUser;
 
   static getCurrentUser() {
-    return currentUser;
+    return currentUser = FirebaseAuth.instance.currentUser;
   }
 
   static Future<FirebaseApp> initializeFirebase() async {
