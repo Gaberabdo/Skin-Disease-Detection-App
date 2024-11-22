@@ -29,20 +29,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.8
-  flutter_svg: ^2.0.10+1
-  introduction_screen: ^3.1.14
-  google_fonts: ^6.2.1
+  firebase_auth: ^5.3.3
+  firebase_core: ^3.8.0
+  flutter_bloc: ^8.1.6
+  google_maps_flutter: ^2.10.0
+  geolocator: ^13.0.2
+  flutter_polyline_points: ^2.1.0
   image_picker: ^1.1.2
-  gallery: ^0.0.4
-  firebase_auth: ^5.3.1
-  firebase_core: ^3.6.0
-  shared_preferences:
-  get:
-  tflite_flutter: ^0.11.0
-  image: ^4.3.0
-  #firebase
-
+  dio: ^5.7.0
+  uuid: ^4.5.1
+  shared_preferences: ^2.3.3
+  tflite: ^1.1.2
+  flutter_launcher_icons: ^0.14.1
+  url_launcher: ^6.3.1
+  cupertino_icons: ^1.0.8
+  awesome_dialog: ^3.2.1
 
 
 dev_dependencies:
@@ -54,7 +55,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^1.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
